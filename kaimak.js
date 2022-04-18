@@ -39,7 +39,7 @@ function injectKaimak() {
                 __kaimak_installed = true;
                 return __kaimak_enable().then((addrs) => {
                     window.klaytn.selectedAddress = addrs[0];
-                    window.klaytn.emit("accountsChanged");
+                    window.klaytn.emit("accountsChanged", addrs);
                     return addrs;
                 });
             }
