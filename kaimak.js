@@ -29,7 +29,6 @@ function injectKaimak() {
             },
             isUnlocked: function () {
                 return window.ethereum._metamask.isUnlocked().then((x) => {
-                    console.log(`isUnlocked: ${x}`);
                     return x;
                 });
             }
