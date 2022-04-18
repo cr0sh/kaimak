@@ -11,9 +11,16 @@ s.onload = function () {
 var m = document.createElement('meta');
 m.setAttribute("kaimak-extension-id", chrome.runtime.id);
 
+var c = document.createElement('script');
+c.src = chrome.runtime.getURL("caver.min.js");
+c.onload = function () {
+    this.remove();
+}
+
 let container = (document.head || document.documentElement);
 container.insertBefore(s, container.children[0]);
 container.appendChild(m);
+container.appendChild(c);
 
 function injectKaimak() {
     let __kaimak_enable = window.ethereum.enable;
@@ -61,9 +68,4 @@ function injectKaimak() {
     };
 
     window.klaytn = new Proxy(__kaimak_kaikas, __kaimak_handler);
-    window.caver = {
-        klay: {
-            sendTransaction: (params) => new Promise((resolve) => window.klaytn.sendAsync({ method: "klay_sendTransaction", params: [params] }, resolve)),
-        }
-    }
 }
