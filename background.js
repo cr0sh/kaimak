@@ -1,8 +1,5 @@
-chrome.runtime.onMessage.addListener((message, _sender, reply) => {
-    console.log(message);
-    if (message === "kaimak_success") {
-        chrome.tabs.create({ url: "popup.html" });
-        reply("done");
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    if (tab.url.search(/https?:\/\/(baobab\.)?scope\.klaytn\.com\/address\//) === 0) {
+        chrome.tabs.update(tabId, { url: tab.url.replace("/address/", "/account/") });
     }
 });
-console.log("hi");
