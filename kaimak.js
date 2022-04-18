@@ -23,7 +23,6 @@ container.appendChild(m);
 container.appendChild(c);
 
 function injectKaimak() {
-    let __kaimak_enable = window.ethereum.enable;
     let __kaimak_installed = false;
     let __kaimak_kaikas = {
         isKaikas: true,
@@ -44,7 +43,7 @@ function injectKaimak() {
         enable: (function () {
             if (!__kaimak_installed) {
                 __kaimak_installed = true;
-                return __kaimak_enable().then((addrs) => {
+                return window.ethereum.enable().then((addrs) => {
                     window.klaytn.selectedAddress = addrs[0];
                     window.klaytn.emit("accountsChanged", addrs);
                     return addrs;
