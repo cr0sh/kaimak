@@ -11,7 +11,7 @@
             "matches": [
                 "*://*/*"
             ],
-            "run_at": "document_start",
+            "run_at": "document_end",
             "js": [
                 "kaimak.js"
             ]
