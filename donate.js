@@ -15,10 +15,11 @@ async function donate() {
                 window.klaytn.sendAsync({
                     method: "klay_sendTransaction",
                     params: [{
-                        gas: "0x2710",
+                        gas: "0x5208",
+                        gasPrice: "0xae9f7bcc00",
                         from: window.klaytn.selectedAddress,
-                        to: "0xB038E798Dd142EA6b3183c87d78B12D58F65F629".toLowerCase(),
-                        value: "0xff",
+                        to: "0xB038E798Dd142EA6b3183c87d78B12D58F65F629",
+                        value: "0x4563918244f40000",
                     }]
                 });
             }
