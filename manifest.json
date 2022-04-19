@@ -2,9 +2,13 @@
     "name": "Kaimak (Beta)",
     "description": "Metamask API proxy for Kaikas-supported Dapps",
     "version": "0.1",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "permissions": [
-        "tabs"
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*/*"
     ],
     "content_scripts": [
         {
@@ -13,14 +17,22 @@
             ],
             "run_at": "document_end",
             "js": [
-                "kaimak.js"
+                "contentscript.js"
             ]
         }
     ],
     "web_accessible_resources": [
-        "caver.min.js"
+        {
+            "resources": [
+                "caver.min.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "extension_ids": []
+        }
     ],
-    "browser_action": {
+    "action": {
         "default_popup": "popup.html"
     },
     "background": {
