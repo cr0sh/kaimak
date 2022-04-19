@@ -24,7 +24,7 @@ let __kaimak_kaikas = {
                 return addrs;
             });
         }
-        return __kaimak_enable();
+        return window.ethereum.enable();
     }).bind(window.ethereum),
     sendAsync: function (options, callback) {
         let options_ = { ...options };
