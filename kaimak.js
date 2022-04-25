@@ -22,11 +22,12 @@
             enable: (function () {
                 if (!__kaimak_installed) {
                     __kaimak_installed = true;
-                    return window.ethereum.enable().then((addrs) => {
+                    return async () => {
+                        let addrs = await window.ethereum.enable();
                         window.klaytn.selectedAddress = addrs[0];
                         window.klaytn.emit("accountsChanged", addrs);
                         return addrs;
-                    });
+                    };
                 }
                 return window.ethereum.enable();
             }).bind(window.ethereum),
