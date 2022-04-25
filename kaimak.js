@@ -39,6 +39,11 @@
         };
         let __kaimak_handler = {
             get: function (target, name) {
+                if (name === "networkVersion") {
+                    if (typeof window.ethereum[name] === "string") {
+                        return Number.parseInt(window.ethereum[name], 10);
+                    }
+                }
                 if (name in target) {
                     return target[name];
                 }
