@@ -34,6 +34,13 @@
             sendAsync: function (options, callback) {
                 let options_ = { ...options };
                 options_.method = options_.method.replace("klay", "eth");
+                if (options_.method === "eth_sendTransaction") {
+                    for (let i = 0; i < (options_.params ?? []).length; i++) {
+                        if (options_.params[i].type === "SMART_CONTRACT_EXECUTION") {
+                            delete options_.params[i].type;
+                        }
+                    }
+                }
                 window.ethereum.sendAsync(options_, callback);
             },
             supportsSubscriptions: function () {
