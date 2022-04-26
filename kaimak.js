@@ -35,6 +35,9 @@
                 let options_ = { ...options };
                 options_.method = options_.method.replace("klay", "eth");
                 window.ethereum.sendAsync(options_, callback);
+            },
+            supportsSubscriptions: function () {
+                return false;
             }
         };
         let __kaimak_handler = {
