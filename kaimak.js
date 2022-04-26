@@ -34,7 +34,7 @@
             sendAsync: function (options, callback) {
                 let options_ = { ...options };
                 options_.method = options_.method.replace("klay", "eth");
-                window.ethereum.request(options_, callback);
+                window.ethereum.sendAsync(options_, callback);
             }
         };
         let __kaimak_handler = {
