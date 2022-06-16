@@ -5,7 +5,7 @@ TODO: README
 # Privacy Policies
 
 Kaimak extension(ID iofahmdifbmfadledpgnpaclmkjcjidl) does not hold any sensitive
-information, but redirects all web3 requests to [https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn](Metamsk).
+information, but redirects all web3 requests to [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn).
 So users may check Metamask's privaty policies.
 
 # Credits
